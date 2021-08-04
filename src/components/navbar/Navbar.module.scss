@@ -1,0 +1,115 @@
+$nav-bg: black;
+$nav-hover-bg: gray;
+$nav-text: white;
+$text-bottom-hover: blue;
+
+%layout-style {
+  width: 200px;
+  top: 50px;
+}
+
+@mixin flex-layout($justify: flex-start, $align: flex-start, $direction: row) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+.mainBar {
+  @include flex-layout($justify: center, $align: stretch);
+  height: 60px;
+  font-weight: 600;
+  position: sticky;
+  top: 0px;
+  background-color: $nav-bg;
+  div.navBar {
+    @include flex-layout($justify: space-around, $align: stretch);
+    flex-grow: 2;
+    position: relative;
+    a:nth-child(1) {
+      font-size: 28px;
+      font-family: serif;
+      color: $text-bottom-hover;
+    }
+    > a {
+      @include flex-layout($justify: center, $align: center);
+      color: $nav-text;
+      text-decoration: none;
+      flex-basis: 150px;
+      span::after {
+        content: "";
+        display: block;
+        align-self: flex-end;
+        width: 0;
+        height: 3px;
+        background: $text-bottom-hover;
+        transition: width 0.5s ease;
+        margin: 0 auto;
+      }
+
+      &:hover:not(:first-child) {
+        background-color: $nav-hover-bg;
+      }
+
+      > span:hover::after {
+        width: 100%;
+      }
+    }
+
+    div.drpdwnMenu {
+      display: none;
+      position: absolute;
+      background-color: $nav-bg;
+      width: 210px;
+      padding: 20px;
+      top: 55px;
+      left: 163px;
+      box-shadow: 2px 2px 6px black;
+      margin-top: 5px;
+      box-shadow: 2px 2px 6px 0px $nav-bg;
+      transition-duration: 500ms;
+      &:hover {
+        display: block;
+      }
+      p {
+        text-decoration: none;
+        color: $nav-text;
+        cursor: pointer;
+        padding: 5px;
+        &:hover {
+          background-color: $nav-hover-bg;
+        }
+      }
+    }
+  }
+
+  .changeStack {
+    &:hover ~ .drpdwnMenu {
+      display: block;
+      opacity: 0;
+      animation: drpDwnAnimation 500ms ease forwards;
+    }
+  }
+
+  @keyframes drpDwnAnimation {
+    0% {
+      opacity: 0;
+      top: 100px;
+    }
+
+    100% {
+      opacity: 1;
+      top: 55px;
+    }
+  }
+
+  div.searchBar {
+    @include flex-layout($justify: center, $align: center);
+    flex-grow: 1;
+    input {
+      width: 200px;
+      height: 35px;
+      padding-left: 5px;
+    }
+  }
+}

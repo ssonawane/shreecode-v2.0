@@ -1,0 +1,61 @@
+$bg-clr: #f5f5f5;
+$border-clr: rgb(240, 240, 240);
+$border-box-clr: gray;
+
+@mixin layout($dir) {
+  display: flex;
+  flex-direction: $dir;
+}
+
+%flex-border {
+}
+
+.aboutMeContainer {
+  width: 100%;
+  padding: 50px 80px;
+  background-color: $bg-clr;
+  .abtMe {
+    @include layout(row);
+    background-color: white;
+    padding: 45px 70px;
+    box-shadow: 0px 0px 4px $border-box-clr;
+    div {
+      &:nth-child(1) {
+        flex-grow: 1;
+      }
+      &:nth-child(2) {
+        flex-grow: 1;
+      }
+    }
+
+    div {
+      p {
+        margin: 7px 0;
+        font-size: 17px;
+        letter-spacing: 1px;
+      }
+      div:not(:nth-child(4)) {
+        @include layout(row);
+        p:first-child {
+          flex-basis: 70px;
+          font-weight: 600;
+        }
+      }
+      .skillset {
+        margin-top: 30px;
+        @include layout(column);
+
+        p {
+          color: $border-box-clr;
+          &:first-child {
+            font-weight: 600;
+            color: black;
+          }
+        }
+      }
+    }
+  }
+}
+
+progress {
+}

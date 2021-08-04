@@ -1,0 +1,174 @@
+.mainBar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  height: 60px;
+  font-weight: 600;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0px;
+  background-color: black;
+}
+
+.mainBar div.navBar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  -webkit-box-flex: 2;
+      -ms-flex-positive: 2;
+          flex-grow: 2;
+  position: relative;
+}
+
+.mainBar div.navBar a:nth-child(1) {
+  font-size: 28px;
+  font-family: serif;
+  color: blue;
+}
+
+.mainBar div.navBar > a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: white;
+  text-decoration: none;
+  -ms-flex-preferred-size: 150px;
+      flex-basis: 150px;
+}
+
+.mainBar div.navBar > a span::after {
+  content: "";
+  display: block;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  width: 0;
+  height: 3px;
+  background: blue;
+  -webkit-transition: width 0.5s ease;
+  transition: width 0.5s ease;
+  margin: 0 auto;
+}
+
+.mainBar div.navBar > a:hover:not(:first-child) {
+  background-color: gray;
+}
+
+.mainBar div.navBar > a > span:hover::after {
+  width: 100%;
+}
+
+.mainBar div.navBar div.drpdwnMenu {
+  display: none;
+  position: absolute;
+  background-color: black;
+  width: 210px;
+  padding: 20px;
+  top: 55px;
+  left: 163px;
+  -webkit-box-shadow: 2px 2px 6px black;
+          box-shadow: 2px 2px 6px black;
+  margin-top: 5px;
+  -webkit-box-shadow: 2px 2px 6px 0px black;
+          box-shadow: 2px 2px 6px 0px black;
+  -webkit-transition-duration: 500ms;
+          transition-duration: 500ms;
+}
+
+.mainBar div.navBar div.drpdwnMenu:hover {
+  display: block;
+}
+
+.mainBar div.navBar div.drpdwnMenu p {
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.mainBar div.navBar div.drpdwnMenu p:hover {
+  background-color: gray;
+}
+
+.mainBar .changeStack:hover ~ .drpdwnMenu {
+  display: block;
+  opacity: 0;
+  -webkit-animation: drpDwnAnimation 500ms ease forwards;
+          animation: drpDwnAnimation 500ms ease forwards;
+}
+
+@-webkit-keyframes drpDwnAnimation {
+  0% {
+    opacity: 0;
+    top: 100px;
+  }
+  100% {
+    opacity: 1;
+    top: 55px;
+  }
+}
+
+@keyframes drpDwnAnimation {
+  0% {
+    opacity: 0;
+    top: 100px;
+  }
+  100% {
+    opacity: 1;
+    top: 55px;
+  }
+}
+
+.mainBar div.searchBar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+.mainBar div.searchBar input {
+  width: 200px;
+  height: 35px;
+  padding-left: 5px;
+}
+/*# sourceMappingURL=Navbar.module.css.map */
